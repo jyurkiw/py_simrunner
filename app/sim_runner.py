@@ -11,12 +11,12 @@ class SimRunner(object):
         self.reset_timer()
 
     def reset_timer(self):
-        self.abort_timer = os.getenv('API_TIMEOUT')
+        self.abort_timer = int(os.getenv('API_TIMEOUT'))
 
     def decrement_timer(self, t=None):
         if not t:
             self.abort_timer -= int(os.getenv('API_TIMEOUT_STEP'))
-            time.sleep(os.getenv('API_TIMEOUT_STEP'))
+            time.sleep(int(os.getenv('API_TIMEOUT_STEP')))
         else:
             self.abort_timer -= int(t)
 
