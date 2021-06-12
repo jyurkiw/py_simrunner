@@ -8,7 +8,7 @@ class ApiRequest(object):
 
     def __init__(self):
         self.api_url = os.getenv('API_URL')
-        if not self.redis_url: raise Exception('API_URL env not set.')
+        if not self.api_url: raise Exception('API_URL env not set.')
 
     def get_sim(self):
         return requests.get(self.api_url + ApiRequest.GET_SIM, headers={'Content-Type': 'application/json'})
