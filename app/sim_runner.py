@@ -30,7 +30,7 @@ class SimRunner(object):
                 self.reset_timer()
 
                 start = time.monotonic()
-                subprocess.run('bazel run //app/mcSim/simulations:{0}-sim'.format(next_sim).split(' '))
+                subprocess.run('bazel run //mcSim/simulations:{0}-sim'.format(next_sim).split(' '))
                 end = time.monotonic()
 
                 self.decrement_timer(end - start)
