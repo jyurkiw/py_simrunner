@@ -1,10 +1,9 @@
 py_library(
-    name='api_lib',
-    srcs=[
-        'api.py'
+    name = "api_lib",
+    srcs = [
+        "api.py",
     ],
-    visibility=['//visibility:public'],
-    deps=[
-
-    ]
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
 )
