@@ -21,15 +21,17 @@ class SimRunner(object):
             self.abort_timer -= int(t)
 
     def run(self):
-        os.chdir(os.getenv('WORKSPACE_ROOT'))
+        
         while self.abort_timer > 0:
             next_sim = get_next_sim()
             if next_sim == 'empty':
                 self.decrement_timer()
             else:
                 self.reset_timer()
+                workspace_path = os.path.abspath(os.getenv('WORKSPACE_ROOT'))
 
                 start = time.monotonic()
+                os.chdir(workspace_path)
                 subprocess.run('bazel run //mcSim/simulations:{0}-sim'.format(next_sim).split(' '))
                 end = time.monotonic()
 

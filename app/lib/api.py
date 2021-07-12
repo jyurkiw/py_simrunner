@@ -11,7 +11,7 @@ class ApiRequest(object):
         if not self.api_url: raise Exception('API_URL env not set.')
 
     def get_sim(self):
-        return requests.get(self.api_url + ApiRequest.GET_SIM, headers={'Content-Type': 'application/json'})
+        return requests.get(self.api_url + ApiRequest.GET_SIM, headers={'Content-Type': 'application/json'}).content.decode()
 
     def send_report(self, report):
         return requests.post(self.api_url + ApiRequest.GET_SIM, data=report, headers={'Content-Type': 'application/json'}).status_code
